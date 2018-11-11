@@ -1,0 +1,56 @@
+PURPOSE
+To outline installation of ros-melodic-full and Turtlebot3 packages.
+
+DESCRIPTION
+This install was performed using Ubuntu 18.04 (Bionic).
+
+INSTALL PROCEDURE
+Install ROS
+1 Navigate to: http://wiki.ros.org/melodic/Installation/Ubuntu
+1.1 Follow 1.1-1.5: 1.4 w/: $ sudo apt-get install ros-melodic-desktop-full
+1.2 Follow 1.6-1.7, 1.6 w/: 
+	$ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+	$ source ~/.bashrc
+	
+Install turtlebot packages and build catkin workspace
+2. Install turtlebot3 packages, note that I'm not sure if these are required, just following turtlebot3 documentation:
+	$ sudo apt-get install ros-melodic-joy ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc ros-melodic-rgbd-launch ros-melodic-rosserial-arduino ros-melodic-rosserial-python ros-melodic-rosserial-server ros-melodic-rosserial-client ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro ros-melodic-compressed-image-transport ros-melodic-rqt-image-view ros-melodic-navigation ros-melodic-interactive-markers
+3. Build catkin workspace. 
+3.1 Enter the following into terminal:
+	$ source /opt/ros/melodic/setup.bash
+	$ mkdir -p ~/catkin_ws/src/robots/turtlebot3waffle
+	$ cd ~/catkin_ws/src/robots/turtlebot3waffle
+	$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+	$ git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
+	$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+	$ cd ~/catkin_ws && catkin_make
+4 Add turtlebot3 environmental variables to bash 
+4.1 In terminal enter:
+	$ gedit ~/.bashrc
+4.2 Add the following two statements to the bottom line of bashrc document. Note that the path to catkin_ws should be updated to match to your own path to your catkin_ws.
+	source /home/[your username]/catkin_ws/devel/setup.bash
+	export TURTLEBOT3_MODEL=waffle
+
+restart terminal
+
+TEST ROS+GAZEBO+TURTLEBOT3
+Start Gazebo - http://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/
+1 Now you can run ROS+Gazebo w/ turtlebot3 using:
+	$ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+2 Operate turtlebot3
+2.1 To teleoperate, run the following in a separate terminal: 
+	$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch	
+2.2 Or, to autonomously operate, run the following in a separate terminal:
+	$ roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
+
+NOTE: If you didn't edit bashrc (step 4) then you will need to run the following each time you open a new shell:
+	$ source /home/[your username]/catkin_ws/devel/setup.bash
+	$ export TURTLEBOT3_MODEL=waffle  
+
+Note: If error occuring, there there may be a process still running in background:
+$ . ~/catkin_ws/devel/setup.bash
+$ killall gzserver 
+$ roslaunch package[name] launch file[name]
+Source: http://answers.gazebosim.org/question/4153/gazebo-crashes-immediately-using-roslaunch-after-installing-gazebo-ros-packages/
+
+

@@ -1,0 +1,12 @@
+# filename: custom_map_instructions
+# by: Abhay Gupta 
+# date: 10-29-18
+
+mv gupta_custom.world to:
+src/robots/turtlebot3waffle/turtlebot3_simulations/turtlebot3_gazebo/worlds
+
+mv gupta_custom.launch to: 
+src/robots/turtlebot3waffle/turtlebot3_simulations/turtlebot3_gazebo/launch
+
+to run file: 
+roslaunch turtlebot3_gazebo gupta_custom.launch
