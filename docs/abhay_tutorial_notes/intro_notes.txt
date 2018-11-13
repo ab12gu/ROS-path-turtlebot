@@ -1,0 +1,59 @@
+Followed Tutorial...
+Idiotically forgot to save some vital notes...
+
+To reset envirnoment after closing workstation:
+$ . ~/catkin_ws/devel/setup.bash
+$ killall gzserver 
+$ roslaunch package[name] launch file[name]
+Link: http://answers.gazebosim.org/question/4153/gazebo-crashes-immediately-using-roslaunch-after-installing-gazebo-ros-packages/
+
+ROS contains a straightfoward installation and usage guide:
+http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
+
+To see environmental variables:
+$ printenv | grep ROS
+*installation of ROS will be in root directory; therefore commands can be run from any directory in the terminal
+
+Create Catkin workspace: place to build multiple, interdependent packages together all at once
+$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/
+$ catkin_make
+Contains:
+- Sourse space (source code)
+- Build space (where CMake is invoked to build the catkin pacages in source space)
+-- CMake and catkin keep cache and temp info here
+- Development space (devel space): built targets are placed prior to being installed
+- Install space: once targets are built, they can be installed into install space
+- Result space: parent descriptor for either install or devel space
+
+To set source path (where ROS looks for packages) 
+$ source /opt/ros/melodic/setup.bash
+$ echo $ROS_PACKAGE_PATH
+*added it to .bashrc; therefore, it will run everytime cmd prompt is opened
+
+Moving through ROS directory:
+- return package location
+$ rospack find [package_name]
+$ rospack find roscpp
+- move to package lcoation
+$ roscd [locationname[/subdir]]
+$ roscd roscpp
+$ pwd (return current directory location)
+$ roscd log (move to ROS's log location)
+$ rosls (returns all child directory names)
+
+rospack = ros + pack(age)
+roscd = ros + cd
+rosls = ros + ls
+
+What makes up a catkin Package?
+- catkin compliant package.xml (meta information about the package)
+- - package name, versiion numbers, authors, maintainers, and dependencies on other catkin packages
+- CMakeLists.txt (input to the CMake build system for building software packages)
+- Each package has its own folder (no nested packages)
+
+
+
+
+
+

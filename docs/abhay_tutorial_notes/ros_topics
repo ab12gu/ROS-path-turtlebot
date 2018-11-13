@@ -1,0 +1,74 @@
+Ros topics
+link: http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics
+
+Start with running:
+$ roscore
+
+Run simulation environment w/ turtlesimulation node inside it
+$ rosrun turtlesim turtlesim_node
+
+Moving turtle command
+$ rosrun turtlesim turtle_teleop_key #allows movement through arrow keys
+
+Inside the scenes:
+- turtle_teleop_key is publishing the keystrokes on a topic
+- turtlesim subscribes to the same topic to receive the key strokes
+
+Download rqt graph
+$ sudo apt-get install ros-<distro>-rqt
+$ sudo apt-get install ros-<distro>-rqt-common-plugins
+
+run rqt graph
+$ rosrun rqt_graph rqt_graph
+
+Rostopic: (allows you to get information about ROS topics)
+$ rostopic -h (for help)
+$ rostopic echo /turtle1/cmd_vel #returns value of cmd for topic
+# need to push arrow keys again to see return values
+
+Return description of all active topics
+$ rostopic list -v
+
+Type of message needs to be same for publisher and subscriber to send message
+$ rostopic type [topic]
+$ rostopic type /turtle1/cmd_vel
+returns: /geometry_msgs/Twist
+$ rosmsg show geometry_msgs/Twist #returns details of message
+
+Send a direct message to turtlebot:
+$ rostopic pub [topic] [msg_type] [args]
+$ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'
+
+Details::::
+This command will publish messages to a given topic:
+- rostopic pub
+This option (dash-one) causes rostopic to only publish one message then exit:
+- -1 
+This is the name of the topic to publish to:
+- /turtle1/cmd_vel
+This is the message type to use when publishing to the topic:
+- geometry_msgs/Twist
+::::: #YAML syntax for numbers input
+
+
+Turtle needs a steady stream of commands at 1 Hz to keep moving
+$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'
+# BIG NOTE Each command runs only for a second; therefore lower than 1 hz commands will have pauses..
+
+See data published to turtlesim:
+$ rostopic echo /turtle1/pose
+
+Rate at which data is published:
+$ rostopic hz [topic]
+$ rostopic hz /turtle1/pose
+- shows data is published at a rate of 60 hz?
+
+Depth information:
+$ rostopic type /turtle1/cmd_vel | rosmsg show
+
+Plotting position
+$ rosrun rqt_plot rqt_plot
+- To see plots of x, y on graph:-- add /turtle1/pose/x && /turtle1/pose/y && /turtle1/pose/theta
+
+## Ended on the start of part 7 of ros tutorials
+

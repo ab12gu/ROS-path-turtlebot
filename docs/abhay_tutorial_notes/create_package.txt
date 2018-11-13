@@ -1,0 +1,32 @@
+Creating new packages:
+- link: http://wiki.ros.org/ROS/Tutorials/CreatingPackage 
+
+$ cd ~/catkin_ws/src
+$ catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+$ catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
+
+Build Package:
+$ cd ~/catkin_ws
+$ catkin_make
+If multiple packages in folder, and only build single package:	
+$ catkin_make -DCATKIN_WHITELIST_PACKAGES="package1;package2"
+$ catkin_make -DCATKIN_WHITELIST_PACKAGES=beginner_tutorials
+
+Note: after workspace has been built, a similar folder is built in devel subfolder: /opt/ros/melodic
+
+Update ROS environment with setup file:
+$ . ~/catkin_ws/devel/setup.bash
+
+To return dependencies names:
+$ rospack depends1 beginner_tutorials
+$ rospack depends beginer_tutorials (nested dependencies)
+OR
+$ roscd beginer_tutorials
+$ cat package.xml #returns package contents in terminal
+
+Contents of package.xml: (meta data of package)
+- description tag
+- maintainer tags
+- license tags
+- dependencies tags
+
