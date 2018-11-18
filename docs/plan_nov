@@ -1,0 +1,33 @@
+list = [(x1,y1), (x2,y2), ..]
+
+list[1][1] = x1
+
+list2 = np.array([x1, x2, x3...], [y1, y2...])
+
+list2[1][1]
+
+NOTE: robot radius 0.220
+-> change wall thickness to cover robot radius
+-> send Dylan np.pickle file of x,y trajectory sorted (opti.pkl)
+-> notes on environment change in ROS
+(By: Friday at noon) *do tomorrow
+
+Dylan
+-> Port script python
+-> Turtlebot communcation for wheel commands
+-> Test feed forward trajectory (use opti.pkl)
+**-> Implement feedback controller
+
+Check point: robot can track and follow a trajectory without human/external sources
+(sat)
+
+Restart
+-> figure out camera outputs
+-> output is z = (x, y, d)
+-> How to find Ax+Bu equation for a person (give grid of depth values)
+-> What needs to be done with probability distribution (i.e. how to make decisions)
+
+Meet with Banerjee Thursday(** Dylan off campus 11-12 (prefer after 1))
+
+
+

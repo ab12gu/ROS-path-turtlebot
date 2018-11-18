@@ -7,10 +7,10 @@ import pickle
 import matplotlib.pyplot as plt
 import numpy as np
 
-with open('2d_grid.pkl', 'rb') as afile:
+with open('2d_grid_cs.pkl', 'rb') as afile:
 	P = pickle.load(afile)
 
-with open('outline.pkl', 'rb') as afile:
+with open('outline_cs.pkl', 'rb') as afile:
 	outline = pickle.load(afile)
 
 plt.imshow(P, origin='lower')
@@ -25,9 +25,12 @@ dt = 5
 print(P[x_end-dt:x_end+dt, y_end-dt:y_end+dt])
 
 n = 1000
+offset = n/2-1
 
 H = np.zeros([n,n])
 H[x_end,y_end] = 1
+
+T = np.array([500, 500])
 
 x = x_end
 y = y_end
@@ -53,13 +56,22 @@ while(1):
 	x = x_next
 	y = y_next
 	H[x,y] = 1
+	T = np.append([T], [[(x-offset)/10, (y-offset)/10]])
+
+
 	if P[x,y] == 1:
 		break
 	print(x,y)
 
-H = outline + H
+print(T)
+print(T.shape)
+
+H = outline*(-1) + H
 plt.imshow(H, origin='lower')
 plt.show()
+
+with open('trajectory_xy.pkl', 'wb') as afile:
+	pickle.dump(T, afile)
 
 
 
