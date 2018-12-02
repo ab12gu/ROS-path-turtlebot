@@ -71,7 +71,7 @@ plt.imshow(H, origin='lower')
 plt.show()
 
 with open('trajectory_xy.pkl', 'wb') as afile:
-	pickle.dump(T, afile)
+	pickle.dump(T, afile, protocol = 2)
 
 
 

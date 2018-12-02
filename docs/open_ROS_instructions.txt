@@ -1,0 +1,24 @@
+How to start ROS from terminal:
+
+Run ROS+Gazebo w/ turtlebot3:
+$ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+
+Operate turtlebot from keyboard:
+$ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch	
+
+Run script to operate turtlebot:
+$ roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
+
+Kill Process:
+$ . ~/catkin_ws/devel/setup.bash
+$ killall gzserver 
+$ roslaunch package[name] launch file[name]
+Source: http://answers.gazebosim.org/question/4153/gazebo-crashes-immediately-using-roslaunch-after-installing-gazebo-ros-packages/
+
+Humanoid Robot:
+http://emanual.robotis.com/docs/en/platform/op3/simulation/#gazebo-installation
+http://emanual.robotis.com/docs/en/platform/op3/recovery/#installing-robotis-ros-packages
+
+http://www.makehumancommunity.org/forum/search.php
+https://robots.ros.org/reem-c/
+http://wiki.ros.org/Robots/REEM-C/Tutorials/launch

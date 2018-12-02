@@ -7,8 +7,6 @@ list2 = np.array([x1, x2, x3...], [y1, y2...])
 list2[1][1]
 
 NOTE: robot radius 0.220
--> change wall thickness to cover robot radius
--> send Dylan np.pickle file of x,y trajectory sorted (opti.pkl)
 -> notes on environment change in ROS
 (By: Friday at noon) *do tomorrow
 
@@ -30,4 +28,4 @@ Restart
 Meet with Banerjee Thursday(** Dylan off campus 11-12 (prefer after 1))
 
 
-
+Human Package
