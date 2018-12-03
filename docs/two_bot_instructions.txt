@@ -3,7 +3,7 @@ filename: script_instructions.txt
 mv double_bot.launch (in scripts folder)
 src/robots/turtlebot3waffle/turtlebot3_simulations/turtlebot3_gazebo/launch
 
-Open map w/ both robots: .
+Open map w/ both robots:
 $ roslaunch double_bot.launch
 
 Run Script: (haven't checked if works)

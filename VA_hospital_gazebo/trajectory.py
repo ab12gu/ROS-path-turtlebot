@@ -72,11 +72,15 @@ H = outline*(-1) + H
 plt.imshow(H, origin='lower')
 plt.show()
 
+x = 500
+y = 510
+T = np.append([T], [[(x-offset)/10, (y-offset)/10]])
+
 M = T.reshape((round(len(T)/2),2))
 print(M)
 print(M.shape)
 
-with open('trajectory_xy.pkl', 'wb') as afile:
+with open('trajectory_xy_follower.pkl', 'wb') as afile:
 	pickle.dump(M, afile, protocol = 2)
 
 
