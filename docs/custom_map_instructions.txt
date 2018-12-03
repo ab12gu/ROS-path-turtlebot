@@ -9,4 +9,4 @@ mv gupta_custom.launch to:
 src/robots/turtlebot3waffle/turtlebot3_simulations/turtlebot3_gazebo/launch
 
 to run file: 
-roslaunch turtlebot3_gazebo gupta_custom.launch
+roslaunch turtlebot3_gazebo gupta_custom.launch one_robot.launch
