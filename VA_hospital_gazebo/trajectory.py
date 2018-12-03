@@ -25,16 +25,18 @@ dt = 5
 print(P[x_end-dt:x_end+dt, y_end-dt:y_end+dt])
 
 n = 1000
-offset = n/2-1
+offset = n/2
 
 H = np.zeros([n,n])
 H[x_end,y_end] = 1
 
-T = np.array([500, 500])
+x0 = 500
+y0 = 500
 
 x = x_end
 y = y_end
 
+T = np.array([(x-offset)/10, (y-offset)/10])
 lowest_nb = P[x,y];
 
 while(1):
@@ -70,8 +72,12 @@ H = outline*(-1) + H
 plt.imshow(H, origin='lower')
 plt.show()
 
+M = T.reshape((round(len(T)/2),2))
+print(M)
+print(M.shape)
+
 with open('trajectory_xy.pkl', 'wb') as afile:
-	pickle.dump(T, afile, protocol = 2)
+	pickle.dump(M, afile, protocol = 2)
 
 
 

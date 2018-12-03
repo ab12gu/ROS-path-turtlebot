@@ -1,0 +1,18 @@
+Link: http://wiki.ros.org/Robots/REEM-C/Tutorials/Installation/Simulation
+
+Create Workspace:
+$ mkdir ~/reemc_public_ws
+$ cd ~/reemc_public_ws
+
+Download installation file **see link** and place it in reemc_public_ws directory
+$ rosinstall src /opt/ros/melodic reemc_tutorials.rosinstall
+
+Run next line and add it to bash script ~/.bashrc
+$ source /home/abgup_ubuntu/reemc_public_ws/src/setup.bash
+
+Setup ros dependencies and update them
+$ sudo rosdep init
+$ rosdep update
+
+Ensure all dependencies are working: 
+ rosdep install --from-paths src --ignore-src --rosdistro melodic --skip-keys="opencv2 pal_laser_filters speed_limit sensor_to_cloud hokuyo_node libdw-dev gmock walking_utils rqt_current_limit_controller simple_grasping_action reemc_init_offset_controller walking_controller"
