@@ -8,5 +8,8 @@ src/robots/turtlebot3waffle/turtlebot3_simulations/turtlebot3_gazebo/worlds
 mv gupta_custom.launch to: 
 src/robots/turtlebot3waffle/turtlebot3_simulations/turtlebot3_gazebo/launch
 
-to run file: 
-roslaunch turtlebot3_gazebo gupta_custom.launch one_robot.launch
+Open custom map: 
+roslaunch turtlebot3_gazebo gupta_custom.launch 
+
+Run Circle Script: (haven't checked if works)
+$ python <path>/recursive circle.py

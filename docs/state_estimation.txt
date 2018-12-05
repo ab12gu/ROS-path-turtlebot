@@ -1,0 +1,14 @@
+State Estimation:
+
+git clone --depth=1 https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python.git
+pip install filterpy
+
+Linear Kalman Example Code: 
+https://filterpy.readthedocs.io/en/latest/kalman/KalmanFilter.html
+# script to test code in folder
+
+Now let's try extended kalman:
+
+
+Run the state estimation model in real-time:
+$ python scripts/EKF_motion_model.py

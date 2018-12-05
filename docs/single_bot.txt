@@ -1,0 +1,10 @@
+filename: single_bot.txt
+
+Open map w/ both robots:
+$ roslaunch turtlebot3_gazebo gupta_custom.launch 
+
+Run ROS+Gazebo w/ turtlebot3:
+$ roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch
+
+Run Script:
+$ python scripts/recursive_circle.py
